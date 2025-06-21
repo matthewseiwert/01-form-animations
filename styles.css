@@ -1,0 +1,150 @@
+/* The Universal Selector */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* The page in the browser */
+body {
+  font-family: "Segoe UI", sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+  120deg,
+  #dce3f9 0%, 
+  #bfcdf3 50%, 
+  #a9b8e9 100%
+);
+background-size: 100%;
+background-repeat: no-repeat;
+animation: backgroundZoom 20s ease-in-out infinite alternate;
+}
+
+/* The Second Heading and the Form */ 
+.login-container {
+  width: 100%;
+  max-width: 380px;
+  background-color: white;
+  padding: 2.5rem 3rem;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  animation: scaleFadeIn 1s ease-out;
+}
+
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.2s forwards;
+}
+
+/* Each form field */
+.form-group {
+  position: relative;
+  margin-bottom: 1.75rem;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.form-group:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.form-group:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 1rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: transparent;
+  outline: none;
+}
+
+.form-group label {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white;
+  padding: 0 0.3rem;
+  color: #aaa;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group input:not(:placeholder-shown) {
+  border-color: #556ee6;
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label {
+  top: -0.6rem;
+  left: 0.6rem;
+  font-size: 0.75rem;
+  color: #556ee6;
+}
+
+/* Submit Button */
+button {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #556ee6;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  animation: fadeUp 0.6s ease 0.8s forwards;
+  opacity: 0;
+}
+
+button:hover {
+  background-color: #3f51b5;
+}
+
+/* Animations */
+@keyframes backgroundZoom {
+  0% {
+    background-size: 100%;
+    background-position: center;
+  }
+  50% {
+    background-size: 150%;
+    background-position: top left;
+  }
+  100% {
+    background-size: 200%;
+    background-position: bottom right;
+  }
+}
+
+@keyframes scaleFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} 
